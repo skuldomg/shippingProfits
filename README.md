@@ -26,7 +26,7 @@ The output table displays every product on the CX, how many units can be stored 
 Negative numbers obviously represent impossible routes (no matching buy/sell orders for the respective CX pair).
 
 # Limitations
-* Currently, I **do not account for exchange rates**. All currencies are assumed with a 1:1 conversion rate, which obviously not the case in-game. For the moment, you will need to manually check the exchange rates to see whether or not they negatively influence the route.
+* Currently, I **do not account for exchange rates**. All currencies are assumed with a 1:1 conversion rate, which is obviously not the case in-game. For the moment, you will need to manually check the exchange rates to see whether or not they negatively influence the route.
 * **Fuel costs** are not accounted for, as they can vary wildly. You will still need to subtract those from your profit. 
 
 # Errors
