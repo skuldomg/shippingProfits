@@ -28,6 +28,7 @@ Negative numbers obviously represent impossible routes (no matching buy/sell ord
 # Limitations
 * Currently, I **do not account for exchange rates**. All currencies are assumed with a 1:1 conversion rate, which is obviously not the case in-game. For the moment, you will need to manually check the exchange rates to see whether or not they negatively influence the route.
 * **Fuel costs** are not accounted for, as they can vary wildly. You will still need to subtract those from your profit. 
+* **Check the actual amount of buy/sell orders in-game!** The script calculates profits based off of a whole shipload worth of products, and you may not be able to actually buy/sell the product in that amount in-game. The calculation will only give you a starting point to see at a glance where profits may lie. Always double check manually!
 
 # Errors
 If you get an error that looks something like this:
