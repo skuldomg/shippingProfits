@@ -40,3 +40,6 @@ If you get an error that looks something like this:
     KeyError: 'comex'
 ```
 Make sure that you copied the correct object in **Setup step 4**.
+
+# Screenshot
+![screenshot](https://i.imgur.com/F7MX58D.png)
