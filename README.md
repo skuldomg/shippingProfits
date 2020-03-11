@@ -31,10 +31,12 @@ Negative numbers obviously represent impossible routes (no matching buy/sell ord
 
 # Errors
 If you get an error that looks something like this:
-	Traceback (most recent call last):
-	File ".\findProfits.py", line 105, in <module>
-	get_row("HOP")
-	File ".\findProfits.py", line 11, in get_row
-	weight = float(data["comex"]["broker"]["brokers"][product+".CI1"]["data"]["material"]["weight"])
-	KeyError: 'comex'
+```
+    Traceback (most recent call last):
+    File ".\findProfits.py", line 105, in <module>
+    get_row("HOP")
+    File ".\findProfits.py", line 11, in get_row
+    weight = float(data["comex"]["broker"]["brokers"][product+".CI1"]["data"]["material"]["weight"])
+    KeyError: 'comex'
+```
 Make sure that you copied the correct object in **Setup step 4**.
