@@ -43,4 +43,4 @@ If you get an error that looks something like this:
 Make sure that you copied the correct object in **Setup step 4**.
 
 # Screenshot
-![screenshot](https://i.imgur.com/F7MX58D.png)
+![screenshot](https://i.imgur.com/rTfG4Rk.png)
