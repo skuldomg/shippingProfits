@@ -1,6 +1,12 @@
-import json, csv, operator, math
+import json, csv, operator, math, platform
 
 debug = False
+
+# Use correct filepath separators for different OSes
+if "Windows" in platform.system():
+    sep = "\\"
+else:
+    sep = "/"
 
 with open('profits.csv', mode='w', newline='') as ag:
     agWriter = csv.writer(ag, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)    
@@ -149,7 +155,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             katProm, katMont, promKat, promMont, montKat, montProm,"",bestRoute,maxSales,investment])
     
     try:
-        with open('brokerdata\\brokerdataAgriculture.json', encoding='utf8') as f:            
+        with open('brokerdata'+sep+'brokerdataAgriculture.json', encoding='utf8') as f:            
             try:
                 data = json.load(f)
                 agWriter.writerow(["Agricultural Products"])
@@ -181,7 +187,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
 
     try:
-        with open('brokerdata\\brokerdataAlloys.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataAlloys.json', encoding='utf8') as f:
             try:
                 data = json.load(f)
                 agWriter.writerow(["Alloys"])
@@ -203,7 +209,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataConsumables.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataConsumables.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Basic Consumables"])
@@ -233,7 +239,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
 
     try:
-        with open('brokerdata\\brokerdataChemicals.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataChemicals.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Chemicals"])
@@ -262,7 +268,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")        
             
     try:
-        with open('brokerdata\\brokerdataConstructionMaterials.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataConstructionMaterials.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Construction Materials"])
@@ -289,7 +295,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataConstructionParts.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataConstructionParts.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Construction Parts"])
@@ -319,7 +325,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataConstructionPrefabs.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataConstructionPrefabs.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Construction Prefabs"])
@@ -353,7 +359,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataElectronicDevices.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataElectronicDevices.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Electronic Devices"])
@@ -378,7 +384,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataElectronicParts.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataElectronicParts.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Electronic Parts"])
@@ -407,7 +413,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataElectronicPieces.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataElectronicPieces.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Electronic Pieces"])
@@ -434,7 +440,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")            
         
     try:
-        with open('brokerdata\\brokerdataElectronicSystems.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataElectronicSystems.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Electronic Systems"])
@@ -457,7 +463,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataElements.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataElements.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Elements"])
@@ -485,7 +491,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataFuel.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataFuel.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Fuel"])
@@ -504,7 +510,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataGases.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataGases.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Gases"])
@@ -530,7 +536,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataLiquids.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataLiquids.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Liquids"])
@@ -550,7 +556,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataLuxuryConsumables.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataLuxuryConsumables.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Luxury Consumables"])
@@ -577,7 +583,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataMetals.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataMetals.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Metals"])
@@ -601,7 +607,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataMinerals.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataMinerals.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Minerals"])
@@ -630,7 +636,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataOres.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataOres.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Ores"])
@@ -653,7 +659,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataPlastics.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataPlastics.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Plastics"])
@@ -678,7 +684,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataShipParts.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataShipParts.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Ship Parts"])
@@ -697,7 +703,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataSoftware.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataSoftware.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Software"])
@@ -729,7 +735,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             print("No data, skipping...")
         
     try:
-        with open('brokerdata\\brokerdataTextiles.json', encoding='utf8') as f:
+        with open('brokerdata'+sep+'brokerdataTextiles.json', encoding='utf8') as f:
             try:
                 data = json.load(f)            
                 agWriter.writerow(["Textiles"])
