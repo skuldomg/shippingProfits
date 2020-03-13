@@ -6,6 +6,12 @@ with open('profits.csv', mode='w', newline='') as ag:
     agWriter = csv.writer(ag, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)    
     agWriter.writerow(['Product', 'Volume || weight', 'Units/ship', 'Ask Katoa', 'Bid Katoa', 'Ask Prom', 'Bid Prom', 'Ask Montem', 'Bid Montem', '', 'Kat -> Prom', 'Kat -> Montem', 'Prom -> Kat', 'Prom -> Montem', 'Montem -> Kat', 'Montem -> Prom', '', 'Best route', 'Max sales/ship', 'Investment'])
     
+    def empty_if_negative(val):
+        if(val <= 0):
+            val = ""
+            
+        return val
+    
     def get_row(product):        
         # Get weight/volume
         weight = float(data["comex"]["broker"]["brokers"][product+".CI1"]["data"]["material"]["weight"])
@@ -86,7 +92,7 @@ with open('profits.csv', mode='w', newline='') as ag:
             montProm = -1
             
         # Find max profit
-        profitList = [katProm, katMont, promKat, promMont, montKat, montProm]
+        #profitList = [katProm, katMont, promKat, promMont, montKat, montProm]
         profitDict = {
             "Kat -> Prom": katProm,
             "Kat -> Mont": katMont,
@@ -110,13 +116,37 @@ with open('profits.csv', mode='w', newline='') as ag:
             bestBuy = promAsk
         elif(bestRoute.startswith("Mont")):
             bestBuy = montAsk
+            
+        if(maxPPU <= 0):
+            bestRoute = ""
+        
+        maxPerShip = math.floor(400/weightOrVol)
+        maxSales = round(maxPPU*maxPerShip, 2)
+        
+        if("->" in bestRoute):
+            investment = round(bestBuy*maxPerShip, 2)
+        else:
+            investment = -1
+        
+        # Don't print negative numbers so that the table isn't cluttered as much
+        katAsk = empty_if_negative(katAsk)
+        katBid = empty_if_negative(katBid)
+        promAsk = empty_if_negative(promAsk)
+        promBid = empty_if_negative(promBid)
+        montAsk = empty_if_negative(montAsk)
+        montBid = empty_if_negative(montBid)
+        katProm = empty_if_negative(katProm)
+        katMont = empty_if_negative(katMont)
+        promKat = empty_if_negative(promKat)
+        promMont = empty_if_negative(promMont)
+        montKat = empty_if_negative(montKat)
+        montProm = empty_if_negative(montProm)
+        maxSales = empty_if_negative(maxSales)
+        investment = empty_if_negative(investment)
         
         # Write line
-        agWriter.writerow([product, weightOrVol, math.floor(400/weightOrVol), katAsk, katBid, promAsk, promBid, montAsk, montBid,"",
-            katProm, katMont, promKat, promMont, montKat, montProm,"",bestRoute,round(maxPPU*(400/weightOrVol), 2),            
-            # Investment
-            round(bestBuy*(400/weightOrVol), 2)
-            ])
+        agWriter.writerow([product, weightOrVol, maxPerShip, katAsk, katBid, promAsk, promBid, montAsk, montBid,"",
+            katProm, katMont, promKat, promMont, montKat, montProm,"",bestRoute,maxSales,investment])
     
     try:
         with open('brokerdata\\brokerdataAgriculture.json', encoding='utf8') as f:            
