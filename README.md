@@ -23,7 +23,6 @@ The script requires data from the game that it reads and parses. Since there is 
 2. Open the resulting **profits.csv**
 
 The output table displays every product on the CX, how many units can be stored on one ship and its respective ask and bid prices on the different exchanges. **Columns K-P** display the profit per unit when shipping on the respective route. **Column R** tells you the best route, **column S** how much profit you will make with the best route and when filling up your ship completely. **Column T** tells you how much you need to invest up front to buy a shipload of the product.
-Negative numbers obviously represent impossible routes (no matching buy/sell orders for the respective CX pair).
 
 # Limitations
 * Currently, I **do not account for exchange rates**. All currencies are assumed with a 1:1 conversion rate, which is obviously not the case in-game. For the moment, you will need to manually check the exchange rates to see whether or not they negatively influence the route.
