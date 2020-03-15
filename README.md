@@ -34,7 +34,7 @@ The output table displays every product on the CX, how many units can be stored 
 * **Check the actual amount of buy/sell orders in-game!** The script calculates profits based off of a whole shipload worth of products, and you may not be able to actually buy/sell the product in that amount for that price in-game. The calculation will only give you a starting point to see at a glance where profits may lie. Always double check manually!
 
 # Errors
-* If you get an error that looks something like this:
+If you get an error that looks something like this:
 ```
     Traceback (most recent call last):
     File ".\findProfits.py", line 105, in <module>
